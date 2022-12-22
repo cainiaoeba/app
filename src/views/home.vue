@@ -1,18 +1,15 @@
 <template>
-  <div>
-
-  </div>
+  <div>hellp</div>
 </template>
 
 <script>
 export default {
   name: "ListTodo",
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style scoped lang="less">
-
 </style>

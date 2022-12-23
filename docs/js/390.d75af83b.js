@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkapp"]=self["webpackChunkapp"]||[]).push([[390],{6390:function(e,n,t){t.r(n),t.d(n,{default:function(){return s}});var u=function(){var e=this,n=e._self._c;return n("div",[e._v(" cate ")])},a=[],r={name:"view-cate",data(){return{}}},c=r,l=t(1001),p=(0,l.Z)(c,u,a,!1,null,"7d452ded",null),s=p.exports}}]);
+//# sourceMappingURL=390.d75af83b.js.map

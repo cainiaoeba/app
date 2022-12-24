@@ -7,7 +7,7 @@
       <router-link
         v-for="item in itemGoods"
         :key="item.goodsId"
-        to="/info"
+        to="/info" 
         tag="li"
         class="goods-item"
       >
@@ -53,10 +53,19 @@ export default {
       text-align: center;
       display: flex;
       flex-direction: column;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      box-sizing: border-box;
       img {
         width: 120px;
         margin: 0 auto;
       }
+      p{
+        color: #1baeae;
+      }
+    }
+    .goods-item:nth-child(odd){
+      border-right: 1px solid #ccc;
     }
   }
 }

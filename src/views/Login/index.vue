@@ -1,5 +1,12 @@
 <template>
   <div class="login-box">
+    <NavBar>
+      <template #title>
+        <div>
+          {{ isShowLogin==false?'登录':'注册' }}
+        </div>
+      </template>
+    </NavBar>
     <img src="../../assets/logo.png" alt="" />
     <van-form @submit="onSubmit">
       <van-field
@@ -31,9 +38,13 @@
 </template>
 
 <script>
+import  NavBar from '../../components/NavBar.vue';
 import {register,login } from '../../api/index.js'
 export default {
   name: "view-login",
+  components: {
+    NavBar
+  },
  data() {
     return {
       username: '',//收集手机号
@@ -59,7 +70,7 @@ export default {
     // 登录注册按钮
     onSubmit(values) {
       // 核对验证码是否正确
-      if (this.checkCode == this.QR) {
+      if (this.checkCode == this.QR.toUpperCase()) {
         if (this.isShowLogin == false) {
           // 登录
           login(this.username,this.password).then(res => { 

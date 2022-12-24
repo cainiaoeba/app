@@ -1,6 +1,7 @@
 import Vue from 'vue';
-import { Form,Field,Button,Toast,Swipe, SwipeItem,Grid, GridItem } from 'vant';
+import { Form,Field,Button,Toast,Swipe, SwipeItem,Grid, GridItem,NavBar } from 'vant';
 
+Vue.use(NavBar);
 Vue.use(Grid);
 Vue.use(GridItem);
 Vue.use(Swipe);

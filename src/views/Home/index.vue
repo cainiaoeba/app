@@ -72,7 +72,7 @@ export default {
   text-align: center;
   background-color: #39a9ed;
   img {
-    width: 375px;
+    width: 100%;
     display: block;
   }
 }

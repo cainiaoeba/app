@@ -19,3 +19,11 @@ export function login(loginName,passwordMd5) {
 export function infos() {
   return http.get('/index-infos')
 }
+//根据id获取商品数据
+export function goodsDetail(id) { 
+  return http.get('/goods/detail/'+id)
+}
+//商品加入购物车
+export function shopCart(options) { 
+  return http.post('/shop-cart', options)
+}

@@ -33,6 +33,11 @@ const routes = [
     meta: {
       isShow:false
     }
+  },{
+    path: '/info/:id', name: 'info', component: () => import('../views/Info'),
+    meta: {
+      isShow:false
+    }
   },
 ]
 

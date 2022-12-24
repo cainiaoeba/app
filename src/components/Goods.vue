@@ -7,7 +7,7 @@
       <router-link
         v-for="item in itemGoods"
         :key="item.goodsId"
-        to="/info" 
+        :to="'/info/'+item.goodsId" 
         class="goods-item"
       >
         <img :src="item.goodsCoverImg" alt="" />

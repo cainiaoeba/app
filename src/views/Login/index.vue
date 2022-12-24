@@ -53,7 +53,8 @@ export default {
       checkCode: '',//底部提示验证码
       QR:'', //收集验证码
       isShowLogin: false,//控制是注册还是登录
-      isQR:false//验证码是否通过
+      isQR:false,//验证码是否通过
+      zhang:''
     };
   },
   methods: {

@@ -8,7 +8,6 @@
         v-for="item in itemGoods"
         :key="item.goodsId"
         to="/info" 
-        tag="li"
         class="goods-item"
       >
         <img :src="item.goodsCoverImg" alt="" />

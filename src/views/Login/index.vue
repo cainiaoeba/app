@@ -21,6 +21,7 @@
         name="password"
         label="密码"  
         placeholder="密码"
+        autocomplete
       />
       <van-field
         v-model="QR"

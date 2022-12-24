@@ -54,7 +54,6 @@ export default {
       QR:'', //收集验证码
       isShowLogin: false,//控制是注册还是登录
       isQR:false,//验证码是否通过
-      zhang:''
     };
   },
   methods: {

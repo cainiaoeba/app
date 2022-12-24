@@ -55,6 +55,7 @@ export default {
       border-bottom: 1px solid #ccc;
       padding: 10px;
       box-sizing: border-box;
+      color: #444;
       img {
         width: 120px;
         margin: 0 auto;

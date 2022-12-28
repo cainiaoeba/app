@@ -9,7 +9,10 @@
       <div class="text">分类</div>
     </router-link>
     <router-link to="/cart" tag="div" class="tab-item">
-      <div class="icon iconfont icon-gouwuche"></div>
+      <section class="count">
+        <div class="icon iconfont icon-gouwuche"></div>
+        <h1>{{ $store.getters.cartCount }}</h1>
+      </section>
       <div class="text">购物车</div>
     </router-link>
     <router-link to="/user" tag="div" class="tab-item">
@@ -54,6 +57,9 @@ export default {
     }
     .text{
       font-size: .24rem;
+    }
+    .count{
+      display: flex;
     }
   }
 }

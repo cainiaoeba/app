@@ -20,7 +20,6 @@ export default {
   },
   watch: {
     $route: function (val) {
-      console.log(val)
       this.isShow=val.meta.isShow
     }
   }

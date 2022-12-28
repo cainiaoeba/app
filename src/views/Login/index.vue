@@ -74,7 +74,8 @@ export default {
       if (this.checkCode == this.QR.toUpperCase()) {
         if (this.isShowLogin == false) {
           // 登录
-          login(this.username,this.password).then(res => { 
+          login(this.username, this.password).then(res => { 
+            console.log(res)
             if (res.resultCode === 200) {
               localStorage.setItem('xftoken',res.data)
               this.$toast('登录成功')

@@ -38,11 +38,34 @@ const routes = [
     meta: {
       isShow:false
     }
+  },{
+    path: '/addressList', name: 'addressList', component: () => import('../views/Address/addressList.vue'),
+    meta: {
+      isShow:false
+    }
+  },{
+    path: '/addressEdit', name: 'addressEdit', component: () => import('../views/Address/addressEdit.vue'),
+    meta: {
+      isShow:false
+    }
+  },{             
+    path: '/create-order', name: 'create-order', component: () => import('../views/CreateOrder'),
+    meta: { 
+      isShow:false
+    }
+  },{             
+    path: '/order', name: 'order', component: () => import('../views/Order'),
+    meta: { 
+      isShow:false
+    }
   },
 ]
 
 const router = new VueRouter({
   routes
+})
+router.beforeEach((to,from,next) => {
+  next()
 })
 
 export default router

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar @click-left="$router.push('/home')" title="标题" left-text="返回" left-arrow fixed placeholder >
+    <van-nav-bar @click-left="$router.back()" title="标题" left-text="返回" left-arrow fixed placeholder >
       <template #title>
         <div>
           <slot name="title"></slot>

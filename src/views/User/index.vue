@@ -2,7 +2,7 @@
   <div>
     user
   </div>
-</template>
+</template> 
 
 <script>
 export default {

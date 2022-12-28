@@ -53,7 +53,6 @@ export default {
   },
   created() {
     infos().then((res) => {
-      console.log(res)
       if (res.resultCode === 200) {
         this.carousels = res.data.carousels;
         this.hotGoodses = res.data.hotGoodses
@@ -61,6 +60,7 @@ export default {
         this.recommendGoodses=res.data.recommendGoodses
       }
     });
+    this.$store.dispatch('shopCartAsync')
   },
 };
 </script>

@@ -20,7 +20,7 @@
     <div v-html="info.goodsDetailContent"></div>
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" />
-      <van-goods-action-icon @click="$router.push('/cart')" icon="cart-o" text="购物车" badge="5"/>
+      <van-goods-action-icon @click="$router.push('/cart')" icon="cart-o" text="购物车" :badge="$store.getters.cartCount"/>
       <van-goods-action-button
         color="#be99ff"
         type="warning"
@@ -47,12 +47,14 @@ export default {
     };
   },
   methods: {
+    //添加商品
     addGoods() {
       if (!this.isBuy) {
           shopCart({goodsId:this.$route.params.id,goodsCount:1}).then(res => {
           console.log(res)
           if (res.resultCode === 200) {
             this.$toast.success('添加成功');
+            this.$store.dispatch('shopCartAsync')
           }
         })
       }
@@ -60,13 +62,14 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.params.id);
+    //根据id获取商品详情数据
     goodsDetail(this.$route.params.id).then((res) => {
       console.log(res);
       if (res.resultCode === 200) {
         this.info=res.data
       }
     });
+    this.$store.dispatch('shopCartAsync')
   },
 };
 </script>

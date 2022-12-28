@@ -6,7 +6,12 @@
       </van-swipe-item>
     </van-swipe>
     <van-grid column-num="5">
-      <van-grid-item v-for="item in 10" :key="item" icon="photo-o" text="文字" />
+      <van-grid-item
+        v-for="(item, index) in icon"
+        :key="index"
+        :icon="item.icon"
+        :text="item.text"
+      />
     </van-grid>
     <!-- 新品推荐 -->
     <Goods :itemGoods="newGoodses">
@@ -36,31 +41,74 @@
 </template>
 
 <script>
-import Goods from '../../components/Goods.vue'
+import Goods from "../../components/Goods.vue";
 import { infos } from "../../api/index.js";
 export default {
   name: "view-home",
   components: {
-    Goods
+    Goods,
   },
   data() {
     return {
       carousels: [], //轮播图数据
-      hotGoodses:[],
+      hotGoodses: [],
       newGoodses: [],
-      recommendGoodses:[],
+      recommendGoodses: [],
+      icon: [
+        {
+          icon: "shopping-cart",
+          text: "码路超市",
+        },
+        {
+          icon: "manager",
+          text: "码路服饰",
+        },
+        {
+          icon: "wechat-pay",
+          text: "全球购",
+        },
+        {
+          icon: "award",
+          text: "码路生鲜",
+        },
+        {
+          icon: "logistics",
+          text: "直邮到家",
+        },
+        {
+          icon: "after-sale",
+          text: "充值缴费",
+        },
+        {
+          icon: "bag-o",
+          text: "9.9元拼",
+        },
+        {
+          icon: "coupon-o",
+          text: "领卷",
+        },
+        {
+          icon: "bill-o",
+          text: "省钱",
+        },
+        {
+          icon: "goods-collect",
+          text: "全部",
+        },
+      ], //宫格数据
     };
   },
   created() {
     infos().then((res) => {
       if (res.resultCode === 200) {
         this.carousels = res.data.carousels;
-        this.hotGoodses = res.data.hotGoodses
-        this.newGoodses = res.data.newGoodses
-        this.recommendGoodses=res.data.recommendGoodses
+        this.hotGoodses = res.data.hotGoodses;
+        this.newGoodses = res.data.newGoodses;
+        this.recommendGoodses = res.data.recommendGoodses;
       }
     });
-    this.$store.dispatch('shopCartAsync')
+    if(localStorage.getItem('xftoken'))
+    this.$store.dispatch("shopCartAsync");
   },
 };
 </script>
@@ -75,5 +123,8 @@ export default {
     width: 100%;
     display: block;
   }
+}
+/deep/.van-grid-item__icon {
+  color: #1baeae;
 }
 </style>

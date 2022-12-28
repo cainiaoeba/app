@@ -1,6 +1,7 @@
 import Vue from 'vue';
-import { Form, Field, Button, Toast, Swipe, SwipeItem, Grid, GridItem, NavBar, GoodsAction, GoodsActionIcon, GoodsActionButton, SubmitBar, Checkbox, Card, Tag, Stepper, AddressList, AddressEdit, Area, ContactCard, SwipeCell,Popup,Tab, Tabs,List,Cell } from 'vant'; 
+import { Form, Field, Button, Toast, Swipe, SwipeItem, Grid, GridItem, NavBar, GoodsAction, GoodsActionIcon, GoodsActionButton, SubmitBar, Checkbox, Card, Tag, Stepper, AddressList, AddressEdit, Area, ContactCard, SwipeCell, Popup, Tab, Tabs, List, Cell, Icon } from 'vant'; 
 
+Vue.use(Icon);
 Vue.use(Cell);
 Vue.use(List);
 Vue.use(Tab);

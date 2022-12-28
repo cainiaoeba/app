@@ -1,6 +1,6 @@
 <template>
   <div>
-    cate
+    正在加急开发中...
   </div>
 </template>
 
@@ -14,5 +14,11 @@ export default {
 </script>
 
 <style scoped lang="less">
-
+div{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  white-space: nowrap;
+}
 </style>

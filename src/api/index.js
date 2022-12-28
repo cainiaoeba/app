@@ -69,11 +69,16 @@ export function paySuccess(orderNo,payType) {
   })
 }
 //获取订单列表
-export function getOrderList(pageNumber,status) { 
+export function getOrderList(pageNumber,status='') { 
   return http.get('/order', {
     params: {
       pageNumber,
       status
     }
   })
+}
+
+//更改密码接口
+export function info(options) {
+  return http.put('/user/info',options)
 }

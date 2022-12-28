@@ -1,4 +1,5 @@
 import VueRouter from 'vue-router'
+import { Toast } from 'vant';
 
 const routes = [
   {
@@ -7,25 +8,29 @@ const routes = [
   {
     path: '/home', name: 'home', component: () => import('../views/Home'),
     meta: {
-      isShow:true
+      isShow: true,
+      verify:false
     }
   },
   {
     path: '/cart', name: 'cart', component: () => import('../views/Cart'),
     meta: {
-      isShow:true
+      isShow: true,
+      verify: true
     }
   },
   {
     path: '/cate', name: 'cate', component: () => import('../views/Cate'),
     meta: {
-      isShow:true
+      isShow: true,
+      verify: false
     }
   },
   {
     path: '/user', name: 'user', component: () => import('../views/User'),
     meta: {
-      isShow:true
+      isShow: true,
+      verify: true
     }
   },
   {
@@ -36,27 +41,38 @@ const routes = [
   },{
     path: '/info/:id', name: 'info', component: () => import('../views/Info'),
     meta: {
-      isShow:false
+      isShow: false,
+      verify: false
     }
   },{
     path: '/addressList', name: 'addressList', component: () => import('../views/Address/addressList.vue'),
     meta: {
-      isShow:false
+      isShow: false,
+      verify: true
     }
   },{
     path: '/addressEdit', name: 'addressEdit', component: () => import('../views/Address/addressEdit.vue'),
     meta: {
-      isShow:false
+      isShow: false,
+      verify: true
     }
   },{             
     path: '/create-order', name: 'create-order', component: () => import('../views/CreateOrder'),
     meta: { 
-      isShow:false
+      isShow: false,
+      verify: true
     }
   },{             
     path: '/order', name: 'order', component: () => import('../views/Order'),
     meta: { 
-      isShow:false
+      isShow: true,
+      verify: true
+    }
+  },{             
+    path: '/id', name: 'id', component: () => import('../views/ID'),
+    meta: { 
+      isShow: false,
+      verify: true
     }
   },
 ]
@@ -64,8 +80,22 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-router.beforeEach((to,from,next) => {
-  next()
+router.beforeEach((to, from, next) => {
+  const nextRoute = ['cart', 'id', 'order', 'create-order', 'addressEdit', 'user']
+  if(nextRoute.indexOf(to.name) >= 0) {  //判断要进入的页面路由是否需要登录才能进入,如果是就判断登录状态
+    if (localStorage.getItem('xftoken')) {//如果登录了就next可以进入
+       next()
+      } else {//如果没登陆，当用户点击需要登录进入的页面跳转到登录页，并给出提示请先登录
+        if (to.path === '/') { 
+          next()
+        } else {
+          Toast('请先登录');
+          next('/login')
+        }
+      }
+  }else{
+    next()
+  }
 })
 
 export default router

@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkapp"]=self["webpackChunkapp"]||[]).push([[694],{9696:function(e,u,n){n.r(u),n.d(u,{default:function(){return p}});var r=function(){var e=this,u=e._self._c;return u("div",[e._v(" user ")])},t=[],a={name:"view-user",data(){return{}}},s=a,c=n(1001),l=(0,c.Z)(s,r,t,!1,null,"7e559ce9",null),p=l.exports}}]);
-//# sourceMappingURL=694.f4234aff.js.map

@@ -20,7 +20,7 @@
 import NavBarVue from "@/components/NavBar.vue";
 import { getAddress } from '../../api/index.js'
 export default {
-  name: "address",
+  name: "addressList",
   components: {
     NavBarVue
   },

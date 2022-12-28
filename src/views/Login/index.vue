@@ -77,7 +77,8 @@ export default {
           login(this.username, this.password).then(res => { 
             console.log(res)
             if (res.resultCode === 200) {
-              localStorage.setItem('xftoken',res.data)
+              localStorage.setItem('xftoken', res.data)
+              localStorage.setItem('username',this.username)
               this.$toast('登录成功')
               this.$router.push('/home')
             }

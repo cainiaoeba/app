@@ -5,7 +5,7 @@
         <div>购物车</div>
       </template>
     </NavBarVue>
-    <section v-if="shopCart.length>0">
+    <section v-if="shopCart.length > 0">
       <div class="shopCart">
         <section class="cart-box" v-for="item in shopCart" :key="item.goodsId">
           <van-swipe-cell id="swipe">
@@ -137,20 +137,20 @@ export default {
 </script>
 
 <style scoped lang="less">
-.isShow-sky{
+.isShow-sky {
   position: fixed;
   top: 40%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
-  div{
+  div {
     text-align: center;
     padding: 10px 30px;
     background: #1baeae;
     color: #fff;
     font-size: 14px;
   }
-  p{
+  p {
     margin: 10px;
     font-size: 18px;
   }

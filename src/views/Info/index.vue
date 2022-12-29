@@ -27,7 +27,7 @@
         text="加入购物车"
         @click="addGoods"
       />
-      <van-goods-action-button color="#7232dd" type="danger" text="立即购买" />
+      <van-goods-action-button @click="buy" color="#7232dd" type="danger" text="立即购买" />
     </van-goods-action>
   </div>
 </template>
@@ -59,6 +59,11 @@ export default {
         })
       }
       this.$toast.fail('请勿重复添加');
+    },
+    //立即购买按钮
+    buy() { 
+      this.addGoods()
+      this.$router.push('/cart')
     }
   },
   created() {

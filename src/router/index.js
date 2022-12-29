@@ -74,6 +74,12 @@ const routes = [
       isShow: false,
       verify: true
     }
+  },{             
+    path: '/about', name: 'about', component: () => import('../views/About'),
+    meta: { 
+      isShow: false,
+      verify: true
+    }
   },
 ]
 

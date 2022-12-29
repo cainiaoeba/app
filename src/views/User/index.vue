@@ -24,11 +24,11 @@
           <span>账号管理</span>
           <van-icon name="arrow" />
         </li>
-        <li>
+        <li @click="$router.push('/addressList')">
           <span>地址管理</span>
           <van-icon name="arrow" />
         </li>
-        <li>
+        <li @click="$router.push('/about')">
           <span>关于我们</span>
           <van-icon name="arrow" />
         </li>

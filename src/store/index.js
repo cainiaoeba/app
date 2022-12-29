@@ -20,7 +20,7 @@ const store = new Vuex.Store({
     changeCartList(state, res) {
       console.log(res)
       state.shopCart = res.map(item => {
-        item.done = false
+        item.done = true
         return item
       })
     }

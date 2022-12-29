@@ -162,7 +162,8 @@ export default {
 }
 .van-submit-bar {
   position: fixed;
-  bottom: 1.3rem;
+  bottom: 50px;
+  left: 0;
 }
 .shopCart {
   margin-bottom: 0.6rem;

@@ -22,7 +22,7 @@
 <script>
 import NavBarVue from "@/components/NavBar.vue";
 import { areaList } from "@vant/area-data";
-import { addAddress, getAddressId } from "../../api/index";
+import { addAddress, getAddressId, delAddressId } from "../../api/index";
 export default {
   name: "addressEdit",
   components: {
@@ -32,7 +32,7 @@ export default {
     return {
       areaList, //省市区数据
       searchResult: [],
-      addressInfo: { }, //编辑地址数据回显
+      addressInfo: {}, //编辑地址数据回显
     };
   },
   methods: {
@@ -57,25 +57,34 @@ export default {
         }
       });
     },
-    onDelete() { },
+    //删除地址
+    onDelete(val) {
+      delAddressId(val.id).then((res) => {
+        console.log("删除地址", res);
+        if ((res.resultCode = 200)) {
+          this.$toast("删除地址成功");
+          this.$router.push('/addressList');
+        }
+      });
+    },
     // 根据地址，得到地区编码
-    getAreaCode(area) { 
-      area = area.replace(/区|县/, '')
+    getAreaCode(area) {
+      area = area.replace(/区|县/, "");
       for (let code in areaList.county_list) {
         if (areaList.county_list[code].includes(area)) {
-          return code
+          return code;
         }
       }
-    }
+    },
   },
   created() {
     this.id = this.$route.query.addressId;
     // 点击编辑进来
-    if (this.id) {    
+    if (this.id) {
       getAddressId(this.id).then((res) => {
         if (res.resultCode === 200) {
           this.addressInfo = {
-            areaCode:this.getAreaCode(res.data.regionName),
+            areaCode: this.getAreaCode(res.data.regionName),
             id: res.data.addressId,
             name: res.data.userName,
             tel: res.data.userPhone,

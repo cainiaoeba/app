@@ -51,6 +51,10 @@ export function addAddress(options) {
 export function getAddressId(id) { 
   return http.get('/address/'+id)
 }
+//根据地址id删除某个地址
+export function delAddressId(id) {
+  return http.delete('/address/'+id)
+}
 // 生成订单根据id获取商品信息
 export function getSettle(id) { 
   return http.get('/shop-cart/settle?cartItemIds='+id)

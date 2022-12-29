@@ -6,7 +6,7 @@
       </template>
     </NavBarVue>
     <van-address-list
-      v-model="chosenAddressId"
+      v-model="a"
       :list="list"
       default-tag-text="默认"
       @add="onAdd"
@@ -68,11 +68,13 @@ export default {
         })
       }
     })
+    // const res = this.list.filter(item => item.isDefault == true)
+    // this.chosenAddressId=res[0]?.id
   },
   computed: {
     a: {
       get() {
-        return this.chosenAddressId=this.list.filter(item => item.isDefault == true)[0].id
+        return this.chosenAddressId=this.list.filter(item => item.isDefault == true)[0]?.id
       }, 
       set(val) { 
         console.log(val)

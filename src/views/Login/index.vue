@@ -23,14 +23,16 @@
         placeholder="密码"
         autocomplete
       />
-      <van-field
+     <section class="Code-box">
+       <van-field
         v-model="QR"
         name="验证码"
         label="验证码"  
         placeholder="验证码"
       />
       <span @click="createCode">{{ checkCode }}</span>
-      <div class="title" @click="ChangeStatus">{{ isShowLogin?'已有账号？立即登录':'立即注册' }}</div>
+     </section>
+      <div class="title" @click="ChangeStatus">👉{{ isShowLogin?'已有账号？立即登录':'立即注册' }}</div>
       <div style="margin: 16px">
         <van-button round block type="info" native-type="submit">{{ isShowLogin==false?'登录':'注册' }}</van-button>
       </div>
@@ -124,8 +126,16 @@ export default {
   .title{
     text-align: left;
     margin-left: 20px;
+    margin-top: 15px;
     font-size: 16px;
     color: #1989fa;
+  }
+}
+.Code-box{
+  display: flex;
+  align-items: center;
+  span{
+    margin-right: 50px;
   }
 }
 </style>

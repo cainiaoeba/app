@@ -8,29 +8,25 @@ const routes = [
   {
     path: '/home', name: 'home', component: () => import('../views/Home'),
     meta: {
-      isShow: true,
-      verify:false
+      isShow: true
     }
   },
   {
     path: '/cart', name: 'cart', component: () => import('../views/Cart'),
     meta: {
-      isShow: true,
-      verify: true
+      isShow: true
     }
   },
   {
     path: '/cate', name: 'cate', component: () => import('../views/Cate'),
     meta: {
-      isShow: true,
-      verify: false
+      isShow: true
     }
   },
   {
     path: '/user', name: 'user', component: () => import('../views/User'),
     meta: {
-      isShow: true,
-      verify: true
+      isShow: true
     }
   },
   {
@@ -41,44 +37,37 @@ const routes = [
   },{
     path: '/info/:id', name: 'info', component: () => import('../views/Info'),
     meta: {
-      isShow: false,
-      verify: false
+      isShow: false
     }
   },{
     path: '/addressList', name: 'addressList', component: () => import('../views/Address/addressList.vue'),
     meta: {
-      isShow: false,
-      verify: true
+      isShow: false
     }
   },{
     path: '/addressEdit', name: 'addressEdit', component: () => import('../views/Address/addressEdit.vue'),
     meta: {
-      isShow: false,
-      verify: true
+      isShow: false
     }
   },{             
     path: '/create-order', name: 'create-order', component: () => import('../views/CreateOrder'),
     meta: { 
-      isShow: false,
-      verify: true
+      isShow: false
     }
   },{             
     path: '/order', name: 'order', component: () => import('../views/Order'),
     meta: { 
-      isShow: true,
-      verify: true
+      isShow: true
     }
   },{             
     path: '/id', name: 'id', component: () => import('../views/ID'),
     meta: { 
-      isShow: false,
-      verify: true
+      isShow: false
     }
   },{             
     path: '/about', name: 'about', component: () => import('../views/About'),
     meta: { 
-      isShow: false,
-      verify: true
+      isShow: false
     }
   },
 ]
@@ -92,14 +81,11 @@ router.beforeEach((to, from, next) => {
     if (localStorage.getItem('xftoken')) {//如果登录了就next可以进入
        next()
       } else {//如果没登陆，当用户点击需要登录进入的页面跳转到登录页，并给出提示请先登录
-        if (to.path === '/') { 
-          next()
-        } else {
-          Toast('请先登录');
-          next('/login')
-        }
+        Toast('请先登录');
+        next('/login')
       }
-  }else{
+  } else {
+    //访问不需要登录的页面自动放行（不在nextRoute中）
     next()
   }
 })
